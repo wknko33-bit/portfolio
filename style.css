@@ -1,0 +1,533 @@
+/* ==========================================================================
+   1. 全体設定（リセットと背景）
+   ========================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, "Noto Sans JP", sans-serif;
+  color: #333333;
+  line-height: 1.6;
+  padding: 24px 10% 40px 10%;
+  background-color: #f8f8f8;
+  /* 背景のノイズテクスチャ */
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* --- オリジナルフォント設定 --- */
+@font-face {
+  font-family: "TOKAngleFREE-S5";
+  src: url("./font/TOKAngleFREE-S5.ttf") format("truetype");
+}
+
+.title-font {
+  font-family: "TOKAngleFREE-S5", sans-serif;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+/* ==========================================================================
+   2. ヘッダー
+   ========================================================================== */
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+}
+
+.logo {
+  font-size: 1.25rem;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+}
+
+.nav-links a {
+  margin-left: 24px;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  transition: opacity 0.3s;
+}
+
+.nav-links a:hover {
+  opacity: 0.5;
+}
+
+/* ==========================================================================
+   3. メインビジュアル & ABOUT（左右2カラム）
+   ========================================================================== */
+.main-visual-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 60px 20px 40px 20px; /* 下側の余白を調整 */
+}
+
+.mv-left {
+  flex: 1;
+  max-width: 450px;
+}
+
+.mv-right {
+  flex: 1;
+  text-align: left;
+}
+
+/* メインタイトル 「ナカオアオ」 */
+.mv-right .title-font {
+  font-size: 3.5rem;
+  font-weight: bold;
+  color: #333333;
+  letter-spacing: 0.1em;
+  margin-bottom: 35px; /* ABOUTとの間の余白 */
+  line-height: 1.2;
+}
+
+/* ABOUT セクションの中身 */
+.about-content p {
+  font-size: 0.95rem;
+  margin-bottom: 8px;
+  color: #444;
+}
+
+/* ==========================================================================
+   4. 各共通セクション設定
+   ========================================================================== */
+section {
+  padding: 70px 0; /* 縦の全体的な余白バランスを均等に */
+}
+
+/* --- NEWSセクション --- */
+#news {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.news-item {
+  display: flex;
+  align-items: baseline;
+  padding: 16px 0;
+  justify-content: center; /* ←これを追加して中央配置にします */
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.news-item:first-of-type {
+  border-top: 1px solid #e5e5e5;
+}
+
+.news-date {
+  font-size: 13px;
+  letter-spacing: 0.05em;
+  color: #888;
+  width: 120px; /* 日付の幅を少し広げて見やすく */
+  flex-shrink: 0;
+}
+
+.news-content {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #222;
+}
+
+.news-content a {
+  border-bottom: 1px solid #222;
+  transition: opacity 0.3s;
+}
+
+.news-content a:hover {
+  opacity: 0.6;
+}
+
+/* ==========================================================================
+   5. WORKS（4列グリッド）
+   ========================================================================== */
+.works-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+/* 通常時の見た目は変えず、transitionのみ滑らかな「ふわっと」アニメーションに統合 */
+.grid-item {
+  display: block;
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ホバー時の動きを「少しの浮遊感・微拡大・薄い影」の上品なエフェクトに統合 */
+.grid-item:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+.image-placeholder {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background-color: transparent; /* 💡 #f0f0f0 から transparent（透明）に変更 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #aaa;
+  font-weight: 500;
+  font-size: 1.1rem;
+  border-radius: 8px;
+}
+
+.grid-item span {
+  display: block; /* インライン要素からブロック要素に変更（これで横幅が広がります） */
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-align: center; /* 広がった横幅の中で中央寄せが効くようになります */
+}
+
+/* WORKS全体のセクション */
+section:has(.works-grid) {
+  margin-bottom: 20px; /* 下側の余白を狭くする（元が80pxなどの場合） */
+  padding-bottom: 0; /* 内側の余白もリセットしてみる */
+}
+
+/* ==========================================================================
+   6. CONTACT
+   ========================================================================== */
+.contact-lead {
+  margin-bottom: 32px;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  color: #666;
+  text-align: center;
+}
+
+.sns-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 50px;
+}
+
+.sns-links a {
+  transition: opacity 0.3s ease;
+}
+
+.sns-links a:hover {
+  opacity: 0.6;
+}
+
+.sns-links a img {
+  width: 48px;
+}
+
+.contact-info-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+.info-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.info-table tr {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 0;
+  border-bottom: 1px dashed #e5e5e5;
+}
+
+.info-table tr:last-child {
+  border-bottom: none;
+}
+
+.info-table th,
+.info-table td {
+  padding: 0;
+  font-size: 0.85rem;
+  letter-spacing: 0.03em;
+}
+
+.info-table th {
+  font-weight: 500;
+  color: #999;
+}
+
+.info-table td {
+  color: #333;
+}
+
+.contact-mail-link {
+  color: #333;
+  border-bottom: 1px solid #333;
+  padding-bottom: 1px;
+  transition: opacity 0.3s;
+}
+
+.contact-mail-link:hover {
+  opacity: 0.6;
+}
+
+/* ==========================================================================
+   7. フッター
+   ========================================================================== */
+.site-footer {
+  text-align: center;
+  padding: 60px 0 20px;
+  font-size: 0.8rem;
+  color: #999;
+}
+
+/* ==========================================================================
+  動画
+   ========================================================================== */
+.video-container {
+  display: flex;
+  justify-content: center; /* 横方向の真ん中寄せ */
+  margin: 50px 0; /* 上下に少し余白を作る */
+  width: 100%; /* 横幅いっぱいに広げて中央の基準にする */
+  padding-top: 40px;
+}
+
+.video-container video {
+  display: block;
+  width: 640px; /* パソコンで見るときのちょうどいい横幅 */
+  max-width: 90%; /* スマホなどの画面が狭いときは画面幅の90%に自動縮小 */
+  height: auto; /* 縦横比を崩さない */
+}
+
+/* ==========================================================================
+   8. レスポンシブ対応（スマホ・タブレット：画面幅 768px 以下）
+   ========================================================================== */
+@media (max-width: 768px) {
+  body {
+    padding: 20px 5%;
+  }
+
+  body h2 {
+    font-size: 1.2rem;
+  }
+
+  .site-footer {
+    padding: 0 20px;
+  }
+
+  .site-header {
+    padding-top: 30px;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .nav-links a {
+    margin: 0 10px;
+  }
+
+  .main-visual-wrapper {
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+    padding: 40px 20px;
+  }
+
+  .mv-right {
+    text-align: center;
+  }
+
+  .mv-right .title-font {
+    font-size: 2.5rem;
+    margin-bottom: 25px;
+  }
+
+  .works-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .gallery-section .works-grid {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 20px 16px !important;
+    padding: 0 10px;
+    justify-content: center;
+  }
+
+  .gallery-section .work-item {
+    flex: 0 0 calc(50% - 8px);
+    max-width: none;
+  }
+
+  .gallery-section .work-item img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .slider-container {
+    display: none !important;
+  }
+}
+
+/* ==========================================================================
+   9. ギャラリーページ専用追加スタイル
+   ========================================================================== */
+.slider-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 20px 0 50px 0;
+}
+
+.slider-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  color: #888;
+  font-weight: bold;
+}
+
+#size-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 250px;
+  height: 1px;
+  background: #000;
+  outline: none;
+}
+
+#size-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid #000;
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+
+#size-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+}
+
+.gallery-section .works-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.gallery-section .work-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 250px;
+  text-align: center;
+  transition: width 0.05s ease-out;
+}
+
+.gallery-section .work-item img {
+  width: 100%;
+  object-fit: contain;
+  margin-bottom: 12px;
+}
+
+.gallery-section .work-item p {
+  font-size: 0.8rem;
+  color: #666;
+  letter-spacing: 0.05em;
+  margin: 0;
+}
+/* ==========================================
+   拡大表示（モーダル）を画面に固定するスタイル
+   ========================================== */
+
+/* 1. 背景を画面いっぱいに広げて固定（最前面へ） */
+.modal {
+  position: fixed; /* スクロールしても画面に固定 */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  /* 💡 背景を白っぽい半透明に変更（元の画面がうっすら透ける上品な白です） */
+  background-color: rgba(245, 245, 245, 0.95);
+  z-index: 9999; /* 他のすべての要素より手前に表示 */
+
+  /* 💡 最初（ページを開いた瞬間）は完全に非表示にします */
+  display: none;
+
+  justify-content: center;
+  align-items: center;
+}
+
+/* 2. 拡大画像のサイズ制限（画面からはみ出さないように） */
+.modal-content {
+  max-width: 80vw;
+  max-height: 80vh;
+  object-fit: contain; /* 縦横比を崩さずに収める */
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1); /* 白背景に合わせて影を優しく調整 */
+}
+
+/* 3. 閉じる「×」ボタン（右上に配置） */
+.modal .close-btn {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  font-size: 40px;
+  color: #000000; /* 💡 閉じるボタンも黒に変更して見やすく */
+  cursor: pointer;
+  line-height: 1;
+  transition: transform 0.2s;
+}
+.modal .close-btn:hover {
+  transform: scale(1.2); /* ホバー時に少し大きく */
+}
+
+/* 4. 左右の矢印ボタン（画面の左右中央に配置） */
+.modal .prev-btn,
+.modal .next-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%); /* 完全に上下中央に揃える */
+  font-size: 50px;
+  color: #000000; /* 💡 矢印の色を黒に変更 */
+  cursor: pointer;
+  padding: 20px;
+  user-select: none; /* テキスト選択されないように */
+  transition: opacity 0.2s;
+}
+
+.modal .prev-btn {
+  left: 40px;
+}
+.modal .next-btn {
+  right: 40px;
+}
+
+.modal .prev-btn:hover,
+.modal .next-btn:hover {
+  opacity: 0.4; /* ホバー時に少し薄くする */
+}
