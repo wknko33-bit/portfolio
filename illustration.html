@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ILLUSTRATION | NAKAO AO</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/png" href="images/ファビコン.png" />
+  </head>
+
+  <body>
+    <!-- ヘッダー：共通デザイン -->
+    <header class="site-header">
+      <div class="logo"><a href="home.html">NAKAO AO</a></div>
+      <nav class="nav-links">
+        <a href="illust.html" class="active">ILLUST</a>
+        <a href="photo.html">PHOTO</a>
+        <a href="logo.html">DESIGN</a>
+        <a href="merch.html">MERCH</a>
+      </nav>
+    </header>
+
+    <main>
+      <section id="works" class="gallery-section">
+        <h2>ILLUSTRATION</h2>
+
+        <!-- 🎛️ ZOOMスライダー -->
+        <div class="slider-container">
+          <span class="slider-label">ZOOM</span>
+          <input
+            type="range"
+            id="size-slider"
+            min="150"
+            max="500"
+            value="250"
+            step="10"
+          />
+        </div>
+
+        <!-- 💡 グリッドコンテナ：hrefをすべて"#"に変更し、別ページへの遷移を防ぎます -->
+        <div class="works-grid" id="illustration-gallery">
+          <a href="#" class="work-item">
+            <img src="images/イラスト1.png" alt="illustration" />
+            <p>title</p>
+          </a>
+
+          <a href="#" class="work-item">
+            <img src="images/イラスト3.png" alt="illustration" />
+            <p>title</p>
+          </a>
+
+          <a href="#" class="work-item">
+            <img src="images/イラスト4.png" alt="illustration" />
+            <p>title</p>
+          </a>
+          <a href="#" class="work-item">
+            <img src="images/イラスト5.png" alt="illustration" />
+            <p>title</p>
+          </a>
+
+          <!-- 1枚目 -->
+          <a href="#" class="work-item">
+            <img src="images/1.png" alt="illustration" />
+            <p>title</p>
+          </a>
+
+          <!-- 3枚目 -->
+          <a href="#" class="work-item">
+            <img src="images/3.png" alt="illustration" />
+            <p>title</p>
+          </a>
+
+          <!-- 4枚目 -->
+          <a href="#" class="work-item">
+            <img src="images/4.png" alt="illustration" />
+            <p>title</p>
+          </a>
+
+          <!-- 5枚目 -->
+          <a href="#" class="work-item">
+            <img src="images/5.png" alt="illustration" />
+            <p>title</p>
+          </a>
+
+          <!-- 6枚目 -->
+          <a href="#" class="work-item">
+            <img src="images/6.png" alt="illustration" />
+            <p>title</p>
+          </a>
+
+          <!-- 8枚目 -->
+          <a href="#" class="work-item">
+            <img src="images/8.png" alt="illustration" />
+            <p>title</p>
+          </a>
+
+          <!-- 9枚目 -->
+          <a href="#" class="work-item">
+            <img src="images/9.png" alt="illustration" />
+            <p>title</p>
+          </a>
+
+          <!-- 11枚目 -->
+          <a href="#" class="work-item">
+            <img src="images/11.png" alt="illustration" />
+            <p>title</p>
+          </a>
+
+          <!-- 12枚目 -->
+          <a href="#" class="work-item">
+            <img src="images/12.png" alt="illustration" />
+            <p>title</p>
+          </a>
+
+          <!-- 13枚目 -->
+          <a href="#" class="work-item">
+            <img src="images/13.png" alt="illustration" />
+            <p>title</p>
+          </a>
+
+          <!-- 14枚目 -->
+          <a href="#" class="work-item">
+            <img src="images/14.png" alt="illustration" />
+            <p>title</p>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <!-- 💡 拡大したときにフワッと表示される大画面用の部品（これ1つに絞ります） -->
+    <div id="imageModal" class="modal">
+      <!-- 閉じるボタン -->
+      <span class="close-btn">&times;</span>
+
+      <!-- 前へボタン -->
+      <span class="prev-btn">&#10094;</span>
+
+      <!-- 拡大画像 -->
+      <img
+        class="modal-content"
+        id="modalImg"
+        src="images/白1.jpg"
+        alt="拡大画像"
+      />
+
+      <!-- 次へボタン -->
+      <span class="next-btn">&#10095;</span>
+    </div>
+
+    <!-- フッター -->
+    <footer class="site-footer">
+      <p>&copy; 2026 NAKAO AO</p>
+    </footer>
+
+    <!-- JavaScriptの読み込み -->
+    <script src="script.js"></script>
+  </body>
+</html>

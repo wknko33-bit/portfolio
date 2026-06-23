@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DESIGN | NAKAO AO</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/png" href="images/ファビコン.png" />
+  </head>
+
+  <body>
+    <!-- ヘッダー：共通デザイン -->
+    <header class="site-header">
+      <div class="logo"><a href="home.html">NAKAO AO</a></div>
+      <nav class="nav-links">
+        <a href="illustration.html" class="active">ILLUST</a>
+        <a href="photo.html">PHOTO</a>
+        <a href="logo.html">DESIGN</a>
+        <a href="merch.html">MERCH</a>
+      </nav>
+    </header>
+
+    <main>
+      <section id="works" class="gallery-section">
+        <h2>DESIGN</h2>
+
+        <!-- 🎛️ ZOOMスライダー -->
+        <div class="slider-container">
+          <span class="slider-label">ZOOM</span>
+          <input
+            type="range"
+            id="size-slider"
+            min="150"
+            max="500"
+            value="250"
+            step="10"
+          />
+        </div>
+
+        <!-- 💡 グリッドコンテナ：hrefをすべて"#"に変更し、別ページへの遷移を防ぎます -->
+        <div class="works-grid" id="illustration-gallery">
+          <!-- 1枚目 -->
+          <a href="#" class="work-item">
+            <img src="images/フライヤー1仮.png" alt="DESIGN" />
+            <p>sample</p>
+          </a>
+
+          <a href="#" class="work-item">
+            <img src="images/フライヤー2仮.png" alt="DESIGN" />
+            <p>sample</p>
+          </a>
+          <a href="#" class="work-item">
+            <img src="images/MIKOTO  ロゴ.png" alt="DESIGN" />
+            <p>sample</p>
+          </a>
+          <a href="#" class="work-item">
+            <img src="images/MIKOTO DANCE ロゴ.png" alt="DESIGN" />
+            <p>sample</p>
+          </a>
+          <a href="#" class="work-item">
+            <img src="images/16.png" alt="DESIGN" />
+            <p>sample</p>
+          </a>
+          <a href="#" class="work-item">
+            <img src="images/18.png" alt="DESIGN" />
+            <p>sample</p>
+          </a>
+          <a href="#" class="work-item">
+            <img src="images/19.png" alt="DESIGN" />
+            <p>sample</p>
+          </a>
+          <a href="#" class="work-item">
+            <img src="images/20.png" alt="DESIGN" />
+            <p>sample</p>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <!-- 💡 拡大したときにフワッと表示される大画面用の部品（これ1つに絞ります） -->
+    <div id="imageModal" class="modal">
+      <!-- 閉じるボタン -->
+      <span class="close-btn">&times;</span>
+
+      <!-- 前へボタン -->
+      <span class="prev-btn">&#10094;</span>
+
+      <!-- 拡大画像 -->
+      <img
+        class="modal-content"
+        id="modalImg"
+        src="images/白1.jpg"
+        alt="拡大画像"
+      />
+
+      <!-- 次へボタン -->
+      <span class="next-btn">&#10095;</span>
+    </div>
+
+    <!-- フッター -->
+    <footer class="site-footer">
+      <p>&copy; 2026 NAKAO AO</p>
+    </footer>
+
+    <!-- JavaScriptの読み込み -->
+    <script src="script.js"></script>
+  </body>
+</html>
